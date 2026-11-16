@@ -1,0 +1,22 @@
+name: Cool README cards
+
+on:
+  schedule:
+    - cron: '0 0 * * *' # Runs daily at midnight (UTC)
+  workflow_dispatch:     # Allows manual triggering from the Actions tab
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write    # Needed to commit the generated cards to the 'cards' branch
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Generate Cool README cards
+        uses: pedrocatalao/github-cool-readme@v1
+        with:
+          token: ${{ secrets.CARDS_TOKEN }}
+          style: dotmatrix
+          color: purple
