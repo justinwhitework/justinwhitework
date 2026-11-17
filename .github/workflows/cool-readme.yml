@@ -1,20 +1,28 @@
 name: Cool README cards
-
 on:
   schedule:
-    - cron: '0 0 * * *' # Runs daily at midnight (UTC)
-  workflow_dispatch:     # Allows manual triggering from the Actions tab
+    - cron: "0 */12 * * *"
+  workflow_dispatch:
 
 jobs:
   generate:
     runs-on: ubuntu-latest
     permissions:
-      contents: write    # Needed to commit the generated cards to the 'cards' branch
+      contents: write
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Generate Cool README cards
-        uses: pedrocatalao/github-cool-readme@v1
+      - uses: actions/checkout@v4
+      - uses: pedrocatalao/github-cool-readme@v1
         with:
           token: ${{ secrets.CARDS_TOKEN }}
+          config: cool-readme.yml
+          output: cards
+      - name: Push to cards branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout --orphan cards
+          git reset
+          cp cards/*.svg .
+          git add *.svg
+          git commit -m "Update README cards" || exit 0
+          git push -f origin cards
