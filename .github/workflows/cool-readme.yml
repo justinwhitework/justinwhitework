@@ -18,5 +18,3 @@ jobs:
         uses: pedrocatalao/github-cool-readme@v1
         with:
           token: ${{ secrets.CARDS_TOKEN }}
-          style: dotmatrix
-          color: purple
