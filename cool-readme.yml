@@ -3,3 +3,24 @@ show: [summary, languages, contributions, weekly, streaks, about, repos]
 look:
   style: dotmatrix
   color: purple
+
+cards:
+  about:
+    title: About
+    headline: "*Justinwhite*.work"
+    lines: [
+      "Exploring *MinHash* and *AI* algorithms",
+      "Building a custom *bytecode* and *language*",
+      "Hacking & *homebrew* on retro handhelds",
+      "Learning *new recipes* every day",
+      "Hiking local trails with my dogs",
+      "Looking to *relocate* to the northeast by 2028"
+    ]
+    facts: {
+      "Age": "19",
+      "Location": "South Carolina, USA",
+      "Drink": "Hint Coconut",
+      "Energy": "Alani Pink Slush",
+      "Pets": "Lily (Chiweenie) & Groot (Lab)",
+      "Food": "Chicken Milanese"
+    }
