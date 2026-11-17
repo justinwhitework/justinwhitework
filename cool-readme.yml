@@ -1,4 +1,4 @@
 show: [streaks, weekly]
 look:
-  style: classic
-  color: amber
+  style: dotmatrix
+  color: purple
