@@ -1,4 +1,5 @@
-show: [streaks, weekly]
+show: [summary, languages, contributions, weekly, streaks, about, repos]
+
 look:
   style: dotmatrix
   color: purple
